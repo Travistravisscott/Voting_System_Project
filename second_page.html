@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2ec;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #87CEEB; 
+        }
+        img {
+            height: 20vh;
+            margin-left: 6rem;
+        }
+
+        .login-container {
+            background-color: #ffffffd7;
+            padding: 2.5rem;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 300px;
+        }
+
+        h2 {
+            margin-bottom: 20px;
+            color: #333333ef;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            color: #555555d2;
+        }
+
+        input[type="text"],
+        input[type="date"],
+        input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 5px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        input[type="text"]:focus,
+        input[type="date"]:focus,
+        input[type="password"]:focus {
+            border-color: #007bff;
+            outline: none;
+        }
+
+        button {
+            width: 22.3vw;
+            padding: 10px;
+            background-color: #007bffdc;
+            border: none;
+            border-radius: 4px;
+            color: #fff;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+
+    </style>
+</head>
+<body>
+    <form action="/register" method="post">
+  <div class="header">
+   
+    <h1>
+      
+      भारतीय निर्वाचन आयोग
+
+    </h1>
+
+    <img src="https://hindi.eci.gov.in/uploads/monthly_2018_09/eci-logo.png.12f37bb58650e1f192ec0d1bcdc9ab7a.png" alt="Election Commission Symbol">
+    <div class="login-container">
+        <h2>Registeration Form</h2>
+        <form id="loginForm" action="/register" method="post">
+            <div class="form-group">
+                <label for="name">Name</label>
+                <input type="text" id="name" name="name" required>
+            </div>
+            <div class="form-group">
+                <label for="dob">Date of Birth</label>
+                <input type="date" id="dob" name="dob" required max="2006-01-01">
+            </div>
+            <div class="form-group">
+                <label for="aadhar">Aadhar Card No</label>
+                <input type="text" id="aadhar" name="aadhar" pattern="\d{12}" title="Aadhar card number must be 12 digits" required>
+            </div>
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" required>
+            </div>
+            <button type="submit" class="submit-btn" onclick=addUserId()>Register</button>
+        </form>
+    </div>
+</body>
+<script>
+    const addUserId = () => {
+        alert("Please Check Your Email")
+   }
+   
+</script>
+</html>

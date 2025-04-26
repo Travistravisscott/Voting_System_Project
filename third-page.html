@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Political Parties and Candidates</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background-color: rgb(128, 132, 194);
+        margin: 0;
+        padding: 20px;
+      }
+      .container {
+        max-width: 600px;
+        margin: 0 auto;
+        background-color: hsla(0, 0%, 100%, 0);
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      }
+      h1 {
+        text-align: center;
+        color: #585050e7;
+      }
+      .party {
+        margin-bottom: 20px;
+        padding: 10px;
+        border: 1px solid #3f3f4dea;
+        border-radius: 5px;
+      }
+      .party h2 {
+        margin: 0;
+        font-size: 20px;
+        color: #0056b3;
+      }
+      .party p {
+        margin: 5px 0;
+        font-size: 16px;
+        color: #555555;
+      }
+      .party input {
+        margin-right: 10px;
+      }
+      .party:hover {
+        background-color: #f1f1f1;
+      }
+      .submit-btn {
+        display: block;
+        width: 100%;
+        padding: 10px;
+        background-color: #0056b3;
+        color: #ffffff;
+        border: none;
+        border-radius: 5px;
+        font-size: 16px;
+        cursor: pointer;
+        margin-top: 20px;
+      }
+      .submit-btn:hover {
+        background-color: #004099;
+      }
+      .submit-btn a {
+        text-decoration: none;
+        color: #ffffff;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Select Your Candidate</h1>
+      <form action="/votedfor" method="post">
+        <div class="party">
+          <label>
+            <input type="radio" name="party" value="party1" required />
+            <h2>Party 1: Bharatiya Janata Party</h2>
+            <p>Candidate: Manoj Yadav</p>
+          </label>
+        </div>
+        <div class="party">
+          <label>
+            <input type="radio" name="party" value="party2" />
+            <h2>Party 2: Indian National Congress</h2>
+            <p>Candidate: Salim Khan</p>
+          </label>
+        </div>
+        <div class="party">
+          <label>
+            <input type="radio" name="party" value="party3" />
+            <h2>Party 3: Aam Aadmi Party</h2>
+            <p>Candidate: Virat Chauhan</p>
+          </label>
+        </div>
+        <div class="party">
+          <label>
+            <input type="radio" name="party" value="party4" />
+            <h2>Party 4: Samajwadi Party</h2>
+            <p>Candidate: Kedar Singh Goyal</p>
+          </label>
+        </div>
+        <div class="party">
+          <label>
+            <input type="radio" name="party" value="party5" />
+            <h2>Party 5: Bahujan Samajwadi Party</h2>
+            <p>Candidate: Rajshekhar Iyer</p>
+          </label>
+        </div>
+        <div class="party">
+          <label>
+            <input type="radio" name="party" value="nota" />
+            <h2>None of the Above (NOTA)</h2>
+          </label>
+        </div>
+        <button type="submit" class="submit-btn">
+          Submit
+        </button>
+      </form>
+    </div>
+  </body>
+  <script>
+    const voted = async () => {
+      const votedFor = document.querySelector(
+        "input[type='radio'][name=party]:checked"
+      ).value;
+      const data = {
+        voted: votedFor,
+      }
+      fetch("votedfor", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data),
+      })
+        .then((response) => response.json())
+        .then((data) => console.log("Success:", data))
+        .catch((error) => console.error("Error:", error));
+        console.log("hello")
+    };
+  </script>
+</html>
